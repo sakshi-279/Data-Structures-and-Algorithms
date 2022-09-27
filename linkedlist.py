@@ -16,20 +16,39 @@ class Node:
 class LinkedList():
     def __init__(self):
         self.head = None
-        
-     def insertHead(self, newNode):
+
+    def insertHead(self, newNode):
         tempNode = self.head
         self.head = newNode
         self.head.next = tempNode
-        
-        
+
+        del tempNode
+
+
+    def insertAt(self, newNode, position):
+        if position == 0:
+            self.insertHead(newNode)
+            return
+
+        currentNode = self.head
+        currentPos = 0
+        while True:
+            if currentPos == position:
+                previousNode.next = newNode
+                newNode.next = currentNode
+                break
+            previousNode = currentNode    
+            currentNode = currentNode.next
+            currentPos += 1
+
+
+
+
     def insertEnd(self, newNode):
         #head => John, next of john points to None
         if self.head is None:
             self.head = newNode
-
         else:
-
             lastNode = self.head
             while True:
                 if lastNode.next is None:
@@ -49,18 +68,18 @@ class LinkedList():
 #create object for node class
 #While creation of object pass the data field called name John
 # Now firstNode.data => John  and firstNode.next => None
-firstNode = Node("John") 
+firstNode = Node(10) 
 # Now add this node to linked list
 linkedList = LinkedList()
 #Linked list is intially empty >> head of linked list is none
 #insert method in linked list to insert node into linked list
 linkedList.insertEnd(firstNode)
 
-secondNode = Node("Ben")
+secondNode = Node(20)
 linkedList.insertEnd(secondNode)
 
-thirdNode = Node("Mac")
-linkedList.insertHead(thirdNode)
+thirdNode = Node(15)
+linkedList.insertAt(thirdNode, 0)
 
 
 linkedList.printList() 

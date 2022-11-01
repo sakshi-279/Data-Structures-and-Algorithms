@@ -19,6 +19,7 @@ def bubblesort(a):
 a = [39, 12, 18, 85, 72, 10, 2, 18]
 
 print("Unsorted list is,")
+//This code is medendatory
 print(a)
 bubblesort(a)
 print("Sorted Array is, ")
